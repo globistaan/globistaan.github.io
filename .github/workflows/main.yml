@@ -43,7 +43,8 @@ jobs:
         run: flutter build web --release
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v3
         with:
           local_directory: build/web
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          artifact_name: excelmap
