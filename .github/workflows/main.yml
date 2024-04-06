@@ -2,7 +2,7 @@ name: Flutter Deploy
 
 on:
   push:
-    branches: [ main ]  # Trigger on pushes to the main branch (adjust as needed)
+    branches: [ master ]  # Trigger on pushes to the main branch (adjust as needed)
 
 jobs:
   build_and_deploy:
