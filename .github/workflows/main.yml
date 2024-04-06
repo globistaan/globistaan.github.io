@@ -47,3 +47,4 @@ jobs:
         with:
           local_directory: build/web
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          artifact_name: excelmap
