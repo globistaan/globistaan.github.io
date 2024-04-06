@@ -1,0 +1,42 @@
+name: Flutter Deploy
+
+on:
+  push:
+    branches: [ main ]  # Trigger on pushes to the main branch (adjust as needed)
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest  # Replace with your preferred runner
+
+    steps:
+      - uses: actions/checkout@v3  # Checkout code from repository
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+        channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Flutter web app
+        run: flutter build web --release
+
+      - name: Set up secrets
+        uses: SpicyPizza/create-envfile@v2.0
+        env:
+          envkey_BACKEND_URL: ${{ secrets.BACKEND_URL }}  # Replace with your secret name
+          envkey_CONTENT_TYPE: ${{ secrets.CONTENT_TYPE }}
+          envkey_HTTP_METHOD: ${{ secrets.HTTP_METHOD }}
+          envkey_ACCEPT: ${{ secrets.ACCEPT }}
+          directory: assets
+          file_name: .env
+          fail_on_empty: false
+          sort_keys: false
+          # Add other secrets as needed
+
+      - name: Deploy to GitHub Pages (replace with your deployment action)
+        uses: actions/deploy-pages@v1
+        with:
+          local_directory: build/web
+          github_token: ${{ secrets.GITHUB_TOKEN }}
