@@ -36,7 +36,7 @@ jobs:
       - name: Build Flutter web app
         run: flutter build web --release
 
-      - name: Deploy to GitHub Pages (replace with your deployment action)
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
         with:
           local_directory: build/web
