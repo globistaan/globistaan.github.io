@@ -48,8 +48,14 @@ jobs:
             name: web-release
             path: ./build/web
 
+      - name: Upload Web Build Files
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-release
+          path: ./build/web
+
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4
         with:
           artifact_name: web-release
           token: ${{ secrets.GITHUB_TOKEN }}
