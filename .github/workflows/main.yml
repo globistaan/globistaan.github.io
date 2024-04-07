@@ -42,17 +42,23 @@ jobs:
           sort_keys: false
           # Add other secrets as needed
 
-      - name: Build Flutter web app
-        run: flutter build web --release
+      - name: Build web app
+        run: flutter build web
 
-      - name: Upload Web Build Files
-        uses: actions/upload-artifact@v4
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
         with:
-            name: web-release-2
-            path: ./build/web
+          name: built-app  # Name for your artifact
+          path: build/web  # Path to your built web app files
 
       - name: Deploy to GitHub Pages
+        id: deployment  # Assign an ID for referencing outputs
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: web-release-2
           token: ${{ secrets.GITHUB_TOKEN }}
+          source: ${{ secrets.ARTIFACT_NAME }}  # Reference uploaded artifact
+          # ... other deployment options (optional)
+
+      - name: Print Deployment URL
+        run: |
+          echo "**Deployment URL:** ${{ steps.deployment.outputs.page_url }}"
