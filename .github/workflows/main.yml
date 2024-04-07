@@ -15,8 +15,7 @@ permissions:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest  # Replace with your preferred runner
-    environment:
-    name: github-pages
+    environment: github-pages
 
     steps:
       - uses: actions/checkout@v3  # Checkout code from repository
