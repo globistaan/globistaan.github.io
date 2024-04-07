@@ -42,8 +42,14 @@ jobs:
       - name: Build Flutter web app
         run: flutter build web --release
 
+      - name: Upload Web Build Files
+        uses: actions/upload-artifact@v2
+        with:
+            name: web-release
+            path: ./build/web
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
         with:
-          artifact_name: excelmap
+          artifact_name: web-release
           token: ${{ secrets.GITHUB_TOKEN }}
