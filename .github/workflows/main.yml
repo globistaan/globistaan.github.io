@@ -38,7 +38,7 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: built-app  # Name for your artifact
+          name: excelmap  # Name for your artifact
           path: build/web  # Path to your built web app files
 
       - name: Deploy to GitHub Pages
@@ -46,7 +46,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifact_name: built-app # Reference uploaded artifact
+          artifact_name: excelmap # Reference uploaded artifact
           # ... other deployment options (optional)
 
       - name: Print Deployment URL
