@@ -22,6 +22,7 @@ jobs:
 
       - name: Enable Flutter Web
         run: flutter config --enable-web
+
         uses: subosito/flutter-action@v2
         with:
           channel: 'beta'
