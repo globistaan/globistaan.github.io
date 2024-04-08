@@ -81,9 +81,9 @@ class _FileUploadAppState extends State<FileUploadApp> {
         final uri = Uri.parse(url);
         String httpMethod = 'POST'
         final request = http.Request(httpMethod, uri);
-        String contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        String contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
         request.headers['Content-Type'] = contentType; // Or specific type if known
-        String accept = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,*/*'
+        String accept = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,*/*';
         request.headers['Accept'] = accept;
 
         //  var request = http.MultipartRequest('POST', Uri.parse(url));
