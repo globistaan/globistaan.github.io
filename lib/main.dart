@@ -23,7 +23,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 
 void main() async{
-  await dotenv.load();
+  //await dotenv.load();
   runApp(MaterialApp(
     home: FileUploadApp(
       // Your Scaffold widget code here
@@ -77,13 +77,13 @@ class _FileUploadAppState extends State<FileUploadApp> {
       subscription =  reader.onLoadEnd.listen((event) async {
 
        // String url = dotenv.env['BACKEND_URL'] ?? '';
-        String url = dotenv.env['BACKEND_URL'] ?? '';
+        String url = 'https://zc7wuf07h4.execute-api.ap-south-1.amazonaws.com/v3/process-excel';
         final uri = Uri.parse(url);
-        String httpMethod = dotenv.env['HTTP_METHOD'] ?? '';
+        String httpMethod = 'POST'
         final request = http.Request(httpMethod, uri);
-        String contentType = dotenv.env['CONTENT_TYPE'] ?? '';
+        String contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         request.headers['Content-Type'] = contentType; // Or specific type if known
-        String accept = dotenv.env['ACCEPT'] ?? '';
+        String accept = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,*/*'
         request.headers['Accept'] = accept;
 
         //  var request = http.MultipartRequest('POST', Uri.parse(url));
