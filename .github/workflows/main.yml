@@ -20,7 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3  # Checkout code from repository
 
-      - name: Setup Flutter
+      - name: Enable Flutter Web
+        run: flutter config --enable-web
         uses: subosito/flutter-action@v2
         with:
           channel: 'beta'
