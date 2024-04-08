@@ -56,7 +56,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          source: ${{ secrets.ARTIFACT_NAME }}  # Reference uploaded artifact
+          artifact_name: built-app # Reference uploaded artifact
           # ... other deployment options (optional)
 
       - name: Print Deployment URL
