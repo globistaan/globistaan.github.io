@@ -79,7 +79,7 @@ class _FileUploadAppState extends State<FileUploadApp> {
        // String url = dotenv.env['BACKEND_URL'] ?? '';
         String url = 'https://zc7wuf07h4.execute-api.ap-south-1.amazonaws.com/v3/process-excel';
         final uri = Uri.parse(url);
-        String httpMethod = 'POST'
+        String httpMethod = 'POST';
         final request = http.Request(httpMethod, uri);
         String contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
         request.headers['Content-Type'] = contentType; // Or specific type if known
