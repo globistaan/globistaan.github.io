@@ -46,7 +46,7 @@ jobs:
         run: flutter build web
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: built-app  # Name for your artifact
           path: build/web  # Path to your built web app files
