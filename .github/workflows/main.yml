@@ -39,7 +39,7 @@ jobs:
         run: flutter build web --base-href "/excelmap/"
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           name: excelmap  # Name for your artifact
           path: build/web  # Path to your built web app files
