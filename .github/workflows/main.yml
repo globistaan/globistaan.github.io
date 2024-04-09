@@ -29,6 +29,9 @@ jobs:
       - name: Enable Flutter Web
         run: flutter config --enable-web
 
+      - name: Clean build directory (optional)
+        run: flutter clean
+
       - name: Install dependencies
         run: flutter pub get
 
