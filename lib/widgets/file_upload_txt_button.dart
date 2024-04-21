@@ -6,12 +6,15 @@ class FileUploadWidget extends StatefulWidget {
   final String buttonText;
   final IconData icon;
   final FileUploadService fileUploadService;
+  final btnIndex;
 
   const FileUploadWidget({
     Key? key,
     required this.buttonText,
     required this.icon,
     required this.fileUploadService,
+    required this.btnIndex
+
   }) : super(key: key);
 
   @override
@@ -31,22 +34,31 @@ class _FileUploadWidgetState extends State<FileUploadWidget> {
         fileName = file.name;
         fileBytes = file.bytes;
       });
-      widget.fileUploadService.addFileData(FileData(fileName: fileName!, bytes: fileBytes!));
+      widget.fileUploadService.updateFileData(FileData(fileName: fileName!, bytes: fileBytes!), widget.btnIndex);
     }
   }
 
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ElevatedButton.icon(
-          onPressed: _selectFile,
-          icon: Icon(widget.icon),
-          label: Text(widget.buttonText),
-        ),
-        if (fileName != null) Text('Uploaded file: $fileName'),
+        Column(
+          children: [
+            ElevatedButton.icon(
+              onPressed: _selectFile,
+              icon: Icon(widget.icon),
+              label: Text(widget.buttonText),
+            ),
+            if (fileName != null) Text('Uploaded file: $fileName'),
+
+          ],
+        )
+
       ],
     );
+
   }
 }
