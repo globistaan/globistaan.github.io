@@ -5,7 +5,7 @@ void main() {
     MaterialApp(
       home: Directionality(
         textDirection: TextDirection.ltr, // or TextDirection.rtl based on your app's text direction
-        child: UploadScreen(),
+        child: UploadScreenWidget(),
       ),
     ),
   );
