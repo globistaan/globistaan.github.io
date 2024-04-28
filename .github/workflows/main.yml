@@ -18,7 +18,25 @@ jobs:
     environment: webenv
 
     steps:
+      - name: Checkout code
       - uses: actions/checkout@v3  # Checkout code from repository
+
+      - name: Create .env file
+        run: |
+          echo BACKEND_URL=${{ secrets.BACKEND_URL }} >> .env
+          echo GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} >> .env
+          echo CONTENT_TYPE=${{ env.CONTENT_TYPE }} >> .env
+          echo ACCEPT=${{ env.ACCEPT }} >> .env
+          echo MEDIA_TYPE=${{ env.MEDIA_TYPE }} >> .env
+
+      - name: Use .env file
+        run: |
+          source .env
+          echo $BACKEND_URL
+          echo $GOOGLE_CLIENT_ID
+          echo $CONTENT_TYPE
+          echo $ACCEPT
+          echo $MEDIA_TYPE
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
