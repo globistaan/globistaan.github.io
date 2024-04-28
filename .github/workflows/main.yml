@@ -28,7 +28,7 @@ jobs:
           envkey_GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           envkey_CONTENT_TYPE: ${{ env.CONTENT_TYPE }}
           envkey_ACCEPT: ${{ env.ACCEPT }}
-          envkey_MEDIA_TYPE: ${{ env.MEDIA_TYPE }}
+          envkey_EXCEL_MEDIA_TYPE: ${{ env.EXCEL_MEDIA_TYPE }}
           file_name: .env
           directory: '.'
 

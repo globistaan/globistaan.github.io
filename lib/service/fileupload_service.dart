@@ -28,7 +28,7 @@ class FileUploadService {
           MultipartFile.fromBytes(file?.bytes?.toList() ?? [],
               filename: file?.name,
               contentType: MediaType('application',
-                  dotenv.env['MEDIA_TYPE']!)));
+                  dotenv.env['EXCEL_MEDIA_TYPE']!)));
 
   }
 
